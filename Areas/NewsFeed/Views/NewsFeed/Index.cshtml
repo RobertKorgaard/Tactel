@@ -1,7 +1,5 @@
 ﻿@section Scripts{
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-    @*<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>*@
-    @*<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-cookies.js"></script>*@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-animate.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.js"></script>
 
@@ -13,14 +11,14 @@
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
                 <h2 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#description{{$index}}" aria-expanded="true" aria-controls="collapseOne">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#{{item.Id}}" aria-expanded="true" aria-controls="collapseOne">
                         {{item.Header}}
                     </a>
                     <a class="glyphicon glyphicon-link pull-right" href="{{item.SourceUrl}}" target="_blank">
                     </a>
                 </h2>
             </div>
-            <div id="description{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{$index}}">
+            <div id="{{item.Id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{$index}}">
                 <div class="panel-body">
                     <div class="col-md-12">
                         <img class="img-responsive center-block" src="{{item.ImageUrl}}" />
@@ -44,7 +42,9 @@
                 <slide ng-repeat="item in newsItems | filterByImage | limitTo: 5" active="slide.active">
                     <img ng-src="{{item.ImageUrl}}" style="margin:auto;">
                     <div class="carousel-caption">
-                        <h4>{{item.Header}}</h4>
+                        <a aria-controls="#{{item.Id}}" data-toggle="collapse" data-target="#{{item.Id}}">
+                            <h4>{{item.Header}}</h4>
+                        </a>
                     </div>
                 </slide>
             </carousel>
@@ -52,9 +52,3 @@
         </div>
 
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('.carousel').carousel();
-    });
-</script>

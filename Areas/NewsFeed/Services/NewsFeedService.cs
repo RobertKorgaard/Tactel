@@ -27,18 +27,21 @@ namespace Tactel.Services
             XDocument xdoc = XDocument.Parse(xmlRaw);
             IEnumerable<XElement> rawItems = xdoc.Descendants("channel").Descendants("item");
 
+            int id = 0;
             foreach (XElement item in rawItems)
             {
                 var imageUrl = Regex.Match(item.Element("description").Value, UrlRegex);
 
                 items.Add(new NewsItem()
                 {
+                    Id =id,
                     Description = Regex.Replace(item.Element("description").Value, HtmlTagRegex, string.Empty),
                     Header = item.Element("title").Value,
                     SourceUrl = item.Element("guid").Value,
                     PublishDate = DateTime.Parse(item.Element("pubDate").Value),
                     ImageUrl = imageUrl.Value
                 });
+                id++;
             }
             return items;
         }

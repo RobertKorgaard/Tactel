@@ -34,6 +34,16 @@ textarea {
     min-height: 200px;
 }
 
+#carousel a:hover {
+    text-decoration-color: white;
+
+}
+
+#carousel h4 {
+    color: white;
+    cursor: pointer;
+}
+
 .left.carousel-control, .right.carousel-control {
     background-image: none;
     color: black;
