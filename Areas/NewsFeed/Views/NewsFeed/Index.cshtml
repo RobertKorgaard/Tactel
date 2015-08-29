@@ -1,0 +1,42 @@
+﻿@section Scripts{
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+    @*<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>*@
+    @*<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-cookies.js"></script>*@
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-animate.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap.js"></script>
+
+    @Scripts.Render("~/bundles/newsfeed")
+}
+
+<div class="news-feed" id="ng-app" ng-app="NewsFeedApp" ng-controller="NewsListController">
+    <div>
+        <div ng-repeat="item in newsItems | limitTo:limitTo track by $index">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h2 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#description{{$index}}" aria-expanded="true" aria-controls="collapseOne">
+                            {{item.Header}}
+                        </a>
+                        <a class="glyphicon glyphicon-link pull-right" href="{{item.SourceUrl}}" target="_blank">
+                        </a>
+                    </h2>
+                </div>
+                <div id="description{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{$index}}">
+                    <div class="panel-body">
+                        <div class="col-md-4">
+                            <img src="{{item.ImageUrl}}" />
+                        </div>
+                        <div class="col-md-8">
+                            {{item.Description}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" ng-click="loadMore()">
+            Load more news
+        </button>
+    </div>
+    
+
+</div>
