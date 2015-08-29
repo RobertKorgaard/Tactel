@@ -26,3 +26,13 @@ textarea {
 .news-feed {
     margin-top: 30px;
 }
+
+#carousel {
+    width: 50%;
+    margin-top: 30px;
+}
+
+.left.carousel-control, .right.carousel-control {
+    background-image: none;
+    color: black;
+}

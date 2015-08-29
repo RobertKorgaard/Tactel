@@ -24,6 +24,3 @@ C:\Users\Robert\SkyDrive\VisualStudioProjects\Tactel\Tactel\bin\Newtonsoft.Json.
 C:\Users\Robert\SkyDrive\VisualStudioProjects\Tactel\Tactel\obj\Debug\Tactel.csprojResolveAssemblyReference.cache
 C:\Users\Robert\SkyDrive\VisualStudioProjects\Tactel\Tactel\obj\Debug\Tactel.dll
 C:\Users\Robert\SkyDrive\VisualStudioProjects\Tactel\Tactel\obj\Debug\Tactel.pdb
-C:\Users\Robert\SkyDrive\VisualStudioProjects\Tactel\Tactel\bin\HtmlAgilityPack.dll
-C:\Users\Robert\SkyDrive\VisualStudioProjects\Tactel\Tactel\bin\HtmlAgilityPack.pdb
-C:\Users\Robert\SkyDrive\VisualStudioProjects\Tactel\Tactel\bin\HtmlAgilityPack.xml

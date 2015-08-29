@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('NewsFeedApp', ['NewsFeedApp.Services', 'ui.bootstrap'])
+    angular.module('NewsFeedApp', ['NewsFeedApp.Services', 'ngAnimate'])
         .controller('NewsListController', ['$scope', 'NewsFeedService', newsListController])
         .directive("nfNewsList", [newsListDirective]);
 
@@ -17,7 +17,7 @@
         };
     }
     function newsListController($scope, newsFeedService) {
-        $scope.limitTo = 5;
+        $scope.limitTo = 10;
 
         var promise = newsFeedService.load();
         promise.success(function (response) {
@@ -25,7 +25,7 @@
         });
 
         $scope.loadMore = function() {
-            $scope.limitTo += 5;
+            $scope.limitTo += 10;
         };
     }
 })();
