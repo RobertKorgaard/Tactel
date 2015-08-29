@@ -34,17 +34,41 @@ textarea {
     min-height: 200px;
 }
 
-#carousel a:hover {
-    text-decoration-color: white;
+    #carousel a:hover {
+        text-decoration-color: white;
+    }
 
-}
-
-#carousel h4 {
-    color: white;
-    cursor: pointer;
-}
+    #carousel h4 {
+        color: white;
+        cursor: pointer;
+    }
 
 .left.carousel-control, .right.carousel-control {
     background-image: none;
     color: black;
 }
+
+.news-item:nth-child(even).ng-enter {
+    opacity: 0.5;
+    -webkit-transition: 1s;
+    transition: 1s;
+    left: 300px;
+}
+
+.news-item:nth-child(even).ng-enter-active {
+    left: 0px;
+    opacity: 1;
+}
+
+.news-item:nth-child(odd).ng-enter {
+    opacity: 0.5;
+    -webkit-transition: 1s;
+    transition: 1s;
+    right: 300px;
+}
+
+.news-item:nth-child(odd).ng-enter-active {
+    right: 0px;
+    opacity: 1;
+}
+

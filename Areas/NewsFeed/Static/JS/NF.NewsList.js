@@ -29,6 +29,7 @@
     }
     function newsListController($scope, newsFeedService) {
         $scope.limitTo = 10;
+        $scope.showLoadMore = true;
 
         var promise = newsFeedService.load();
         promise.success(function (response) {
@@ -37,6 +38,7 @@
 
         $scope.loadMore = function() {
             $scope.limitTo += 10;
+            $scope.showLoadMore = $scope.newsItems.length > $scope.limitTo;
         };
     }
 })();

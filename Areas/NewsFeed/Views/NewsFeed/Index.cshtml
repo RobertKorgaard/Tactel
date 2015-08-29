@@ -7,7 +7,7 @@
 }
 
 <div class="news-feed row" id="ng-app" ng-app="NewsFeedApp" ng-controller="NewsListController">
-    <div ng-repeat="item in newsItems | limitTo:limitTo track by $index" class="col-md-6">
+    <div ng-repeat="item in newsItems | limitTo:limitTo track by $index" class="col-md-6 news-item">
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
                 <h2 class="panel-title">
@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="col-md-12 text-center">
-        <button class="btn btn-primary" ng-click="loadMore()">
+        <button class="btn btn-primary" ng-show="showLoadMore" ng-click="loadMore()">
             Load more news
         </button>
     </div>
