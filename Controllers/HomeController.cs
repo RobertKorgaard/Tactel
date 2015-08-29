@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using Antlr.Runtime.Misc;
 
 namespace Tactel.Controllers
@@ -7,7 +8,7 @@ namespace Tactel.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "NewsFeed");
+            throw new NotImplementedException();
         }
     }
 }
