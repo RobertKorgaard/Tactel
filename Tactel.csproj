@@ -143,8 +143,8 @@
     <Content Include="Areas\NewsFeed\Views\web.config" />
     <Content Include="Areas\NewsFeed\Views\_ViewStart.cshtml" />
     <Content Include="Areas\NewsFeed\Views\NewsFeed\Index.cshtml" />
-    <Content Include="Areas\NewsFeed\Static\Templates\NewsList.html" />
     <Content Include="Areas\NewsFeed\Static\JS\NF.NewsList.js" />
+    <None Include="Properties\PublishProfiles\TactelNewsFeed.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

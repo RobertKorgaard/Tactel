@@ -4,10 +4,8 @@ using Tactel.Services;
 namespace Tactel.Areas.NewsFeed.Controllers
 {
     public class NewsFeedController : Controller
-
     {
-
-        private INewsFeedService newsFeedService;
+        private readonly INewsFeedService newsFeedService;
 
         public NewsFeedController()
         {
