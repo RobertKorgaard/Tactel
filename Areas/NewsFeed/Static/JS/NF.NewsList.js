@@ -1,7 +1,18 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('NewsFeedApp', ['NewsFeedApp.Services', 'ngAnimate'])
+    angular.module('NewsFeedApp', ['NewsFeedApp.Services', 'ngAnimate', 'ui.bootstrap'])
+                .filter('filterByImage', function () {
+                    return function (items) {
+                        var filtered = [];
+                        angular.forEach(items, function (item) {
+                            if (item.ImageUrl.length > 1) {
+                                filtered.push(item);
+                            }
+                        });
+                        return filtered;
+                    };
+                })
         .controller('NewsListController', ['$scope', 'NewsFeedService', newsListController])
         .directive("nfNewsList", [newsListDirective]);
 

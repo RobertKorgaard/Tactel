@@ -30,6 +30,8 @@ textarea {
 #carousel {
     width: 50%;
     margin-top: 30px;
+    max-height: 200px;
+    min-height: 200px;
 }
 
 .left.carousel-control, .right.carousel-control {

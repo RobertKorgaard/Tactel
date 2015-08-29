@@ -3,7 +3,7 @@
     @*<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>*@
     @*<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-cookies.js"></script>*@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-animate.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.js"></script>
 
     @Scripts.Render("~/bundles/newsfeed")
 }
@@ -37,37 +37,20 @@
             Load more news
         </button>
     </div>
+
     <div class="col-md-12">
-        <!-- CAROUSEL -->
-        <div id="carousel" class="carousel center-block carousel-fade" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel" data-slide-to="1"></li>
-                <li data-target="#carousel" data-slide-to="2"></li>
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-                <div class="item" ng-class="$index == 0 ? 'active' : ''" ng-repeat="item in newsItems | limitTo: 3 track by $index">
-                    <img width="350px" class="center-block" src="{{item.ImageUrl}}">
+        <div id="carousel" class="center-block">
+            <carousel interval="myInterval">
+                <slide ng-repeat="item in newsItems | filterByImage | limitTo: 5" active="slide.active">
+                    <img ng-src="{{item.ImageUrl}}" style="margin:auto;">
                     <div class="carousel-caption">
-                        {{item.Header}}
+                        <h4>{{item.Header}}</h4>
                     </div>
-                </div>
-            </div>
-
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+                </slide>
+            </carousel>
         </div>
-    </div>
+        </div>
+
 </div>
 
 <script type="text/javascript">
