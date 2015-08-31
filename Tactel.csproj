@@ -120,11 +120,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Areas\NewsFeed\Services\INewsFeedService.cs" />
-    <Compile Include="Areas\NewsFeed\Services\NewsFeedMock.cs" />
     <Compile Include="Areas\NewsFeed\Services\NewsFeedService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\NewsFeed\Static\JS\NF.App.js" />
     <Content Include="Areas\NewsFeed\Static\JS\Services\NF.FeedService.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -144,7 +142,6 @@
     <Content Include="Areas\NewsFeed\Views\_ViewStart.cshtml" />
     <Content Include="Areas\NewsFeed\Views\NewsFeed\Index.cshtml" />
     <Content Include="Areas\NewsFeed\Static\JS\NF.NewsList.js" />
-    <None Include="Properties\PublishProfiles\TactelNewsFeed.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -175,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
