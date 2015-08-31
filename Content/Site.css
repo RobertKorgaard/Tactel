@@ -27,6 +27,10 @@ textarea {
     margin-top: 30px;
 }
 
+#Search {
+    max-width: 480px;
+}
+
 #carousel {
     width: 50%;
     margin-top: 30px;

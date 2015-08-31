@@ -28,7 +28,8 @@ namespace Tactel
                       "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/newsfeed").Include(
-                "~/Areas/NewsFeed/Static/JS/NF.App.js",
+                "~/Areas/NewsFeed/Static/JS/App.js",
+                "~/Areas/NewsFeed/Static/JS/NF.Search.js",
                 "~/Areas/NewsFeed/Static/JS/Services/NF.FeedService.js",
                 "~/Areas/NewsFeed/Static/JS/NF.NewsList.js"
                 ));

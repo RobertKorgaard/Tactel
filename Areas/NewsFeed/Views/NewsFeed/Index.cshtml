@@ -6,49 +6,55 @@
     @Scripts.Render("~/bundles/newsfeed")
 }
 
-<div class="news-feed row" id="ng-app" ng-app="NewsFeedApp" ng-controller="NewsListController">
-    <div ng-repeat="item in newsItems | limitTo:limitTo track by $index" class="col-md-6 news-item">
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne">
-                <h2 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#{{item.Id}}" aria-expanded="true" aria-controls="collapseOne">
-                        {{item.Header}}
-                    </a>
-                    <a class="glyphicon glyphicon-link pull-right" href="{{item.SourceUrl}}" target="_blank">
-                    </a>
-                </h2>
-            </div>
-            <div id="{{item.Id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{$index}}">
-                <div class="panel-body">
-                    <div class="col-md-12">
-                        <img class="img-responsive center-block" src="{{item.ImageUrl}}" />
-                    </div>
-                    <div class="col-md-12">
-                        {{item.Description}}
+<div class="news-feed row" id="ng-app" ng-app="NewsFeedApp">
+        <div class="form-group col-md-12" nf-search>
+
+        </div>
+
+    <div ng-controller="NewsListController">
+        <div ng-repeat="item in newsItems | limitTo:limitTo track by $index" class="col-md-6 news-item" id="news{{item.Id}}">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h2 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#{{item.Id}}" aria-expanded="true" aria-controls="collapseOne">
+                            {{item.Header}}
+                        </a>
+                        <a class="glyphicon glyphicon-link pull-right" href="{{item.SourceUrl}}" target="_blank">
+                        </a>
+                    </h2>
+                </div>
+                <div id="{{item.Id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{$index}}">
+                    <div class="panel-body">
+                        <div class="col-md-12">
+                            <img class="img-responsive center-block" src="{{item.ImageUrl}}" />
+                        </div>
+                        <div class="col-md-12">
+                            {{item.Description}}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-12 text-center">
-        <button class="btn btn-primary" ng-show="showLoadMore" ng-click="loadMore()">
-            Load more news
-        </button>
-    </div>
-
-    <div class="col-md-12">
-        <div id="carousel" class="center-block">
-            <carousel interval="myInterval">
-                <slide ng-repeat="item in newsItems | filterByImage | limitTo: 5" active="slide.active">
-                    <img ng-src="{{item.ImageUrl}}" style="margin:auto;">
-                    <div class="carousel-caption">
-                        <a aria-controls="#{{item.Id}}" data-toggle="collapse" data-target="#{{item.Id}}">
-                            <h4>{{item.Header}}</h4>
-                        </a>
-                    </div>
-                </slide>
-            </carousel>
-        </div>
+        <div class="col-md-12 text-center">
+            <button class="btn btn-primary" ng-show="showLoadMore" ng-click="loadMore()">
+                Load more news
+            </button>
         </div>
 
+        <div class="col-md-12">
+            <div id="carousel" class="center-block">
+                <carousel interval="myInterval">
+                    <slide ng-repeat="item in newsItems | filterByImage | limitTo: 5" active="slide.active">
+                        <img ng-src="{{item.ImageUrl}}" style="margin:auto;">
+                        <div class="carousel-caption">
+                            <a aria-controls="#{{item.Id}}" data-toggle="collapse" data-target="#{{item.Id}}">
+                                <h4>{{item.Header}}</h4>
+                            </a>
+                        </div>
+                    </slide>
+                </carousel>
+            </div>
+        </div>
+
+    </div>
 </div>

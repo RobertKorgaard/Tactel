@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('NewsFeedApp', ['NewsFeedApp.Services', 'ngAnimate', 'ui.bootstrap'])
+    angular.module('NewsFeedApp.NewsList', ['NewsFeedApp'])
                 .filter('filterByImage', function () {
                     return function (items) {
                         var filtered = [];
@@ -13,7 +13,7 @@
                         return filtered;
                     };
                 })
-        .controller('NewsListController', ['$scope', 'NewsFeedService', newsListController])
+        .controller('NewsListController', ['$scope', 'NewsFeedService', '$timeout', newsListController])
         .directive("nfNewsList", [newsListDirective]);
 
     var baseTemplateUrl = '../../Areas/NewsFeed/Static/Templates/';
@@ -27,7 +27,7 @@
             controller: 'NewsListController',
         };
     }
-    function newsListController($scope, newsFeedService) {
+    function newsListController($scope, newsFeedService, $timeout) {
         $scope.limitTo = 10;
         $scope.showLoadMore = true;
 
@@ -36,9 +36,20 @@
             $scope.newsItems = response;
         });
 
-        $scope.loadMore = function() {
+        $scope.loadMore = function () {
             $scope.limitTo += 10;
             $scope.showLoadMore = $scope.newsItems.length > $scope.limitTo;
         };
+
+        $scope.$root.$on('searchSelected', function (event, item) {
+            $scope.limitTo = $scope.newsItems.length;
+            $timeout(function () {
+                angular.element('#' + item.Id).collapse('show');
+                $scope.showLoadMore = false;
+                angular.element('html, body').animate({
+                    scrollTop: angular.element('#news' + item.Id).offset().top - 60
+                }, 1000);
+            }, 200);
+        });
     }
 })();

@@ -1,0 +1,1 @@
+﻿<input type="text" id="Search" placeholder="Search articles" ng-model="selected" typeahead-on-select="onSelected($item, $model, $label)" typeahead-min-length="2" typeahead="item.Header for item in newsItems | filter:$viewValue | limitTo: 5" class="form-control">
