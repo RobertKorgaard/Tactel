@@ -34,7 +34,7 @@ textarea {
     min-height: 200px;
 }
 
-    #carousel a:hover, a:focus {
+    #carousel a:hover, #carousel a:focus {
         text-decoration-color: white;
         color: white;
     }
